@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>War Need Over (WNO) — The Peace Memecoin</title>
+<meta name="description" content="War need over. A peace memecoin on BSC. First 3,000 shares FREE for Agent ID holders, then 0.001 BNB per share. Send memes, not missiles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF9F0; --panel:#FFFFFF; --panel2:#FFFDF8; --line:#F0DFC8;
+    --teal:#00B8A9; --coral:#FF6B5E; --sun:#FFC531; --sky:#3FA7F5; --grape:#8B7CF6;
+    --text:#26324B; --dim:#71809A;
+    --head:'Fredoka','Segoe UI',system-ui,sans-serif;
+    --mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{background:var(--bg)}
+  body{
+    background:
+      radial-gradient(1000px 520px at 85% -10%, #FFE3C2 0, transparent 60%),
+      radial-gradient(900px 520px at -12% 30%, #D8F5E3 0, transparent 55%),
+      radial-gradient(900px 560px at 110% 75%, #D9F0FF 0, transparent 55%),
+      radial-gradient(700px 420px at 8% 108%, #FFE0EC 0, transparent 55%),
+      var(--bg);
+    color:var(--text); font-family:'Nunito','Segoe UI',system-ui,sans-serif; line-height:1.55;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:radial-gradient(rgba(255,107,94,.10) 2.2px, transparent 2.6px),
+                     radial-gradient(rgba(0,184,169,.10) 2.2px, transparent 2.6px);
+    background-size:52px 52px, 52px 52px;
+    background-position:0 0, 26px 26px;
+    mask-image:radial-gradient(ellipse 95% 75% at 50% 0%, #000 25%, transparent 100%);
+  }
+  #stars{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5}
+  a{color:var(--sky); font-weight:700}
+  .wrap{max-width:920px; margin:0 auto; padding:0 18px 70px; position:relative; z-index:1}
+  header{display:flex; justify-content:space-between; align-items:center; padding:18px 0 10px; gap:10px; flex-wrap:wrap}
+  .logo{display:flex; align-items:center; gap:12px}
+  .logo .mark{width:42px; height:42px; flex:none}
+  .logo .name{font-family:var(--head); font-weight:700; font-size:20px; letter-spacing:1.5px}
+  .logo .name span{color:var(--coral)}
+  .logo .sub{font-family:var(--mono); font-size:10px; letter-spacing:3px; color:var(--dim)}
+  button{cursor:pointer; border:none; border-radius:999px; font-family:'Nunito',sans-serif; font-weight:800; transition:.15s; letter-spacing:.4px}
+  button:hover{transform:translateY(-2px)}
+  button:disabled{opacity:.45; cursor:not-allowed; transform:none}
+  #wcBtn{background:var(--sky); color:#fff; padding:12px 22px; font-size:14px; text-transform:uppercase; letter-spacing:1.5px;
+    box-shadow:0 6px 18px rgba(63,167,245,.35)}
+  #headStatus{text-align:center; font-size:13.5px; min-height:20px; padding:2px 0 4px; color:var(--dim); font-weight:700}
+  .hero{text-align:center; padding:30px 0 6px; position:relative}
+  .hero .coords{font-family:var(--mono); font-size:11px; letter-spacing:4px; color:var(--dim)}
+  .hero .doveArt{width:min(300px,62vw); margin:14px auto 2px; display:block; filter:drop-shadow(0 10px 22px rgba(255,138,92,.35))}
+  h1{font-family:var(--head); font-size:clamp(48px,11vw,104px); font-weight:700; line-height:.98; letter-spacing:1px; margin:8px 0 4px; text-transform:uppercase}
+  h1 .stroke{color:var(--sun); text-shadow:3px 3px 0 rgba(38,50,75,.14)}
+  h1 .lime{color:var(--teal)}
+  .tagline{font-size:clamp(15px,3.2vw,19px); color:var(--dim); font-weight:600; max-width:620px; margin:10px auto 0}
+  .tagline b{color:var(--text)}
+  .ticker{border-top:2px dashed var(--line); border-bottom:2px dashed var(--line); margin:26px 0 4px; overflow:hidden;
+    background:rgba(255,255,255,.6)}
+  .ticker .track{display:inline-flex; white-space:nowrap; animation:tick 30s linear infinite; padding:8px 0}
+  .ticker span{font-family:var(--mono); font-size:12px; letter-spacing:3px; color:var(--teal); padding-right:18px}
+  .ticker span i{color:var(--coral); font-style:normal}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  .panel{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:2px solid var(--line);
+    border-radius:22px; padding:24px; margin-top:24px; position:relative;
+    box-shadow:0 10px 30px rgba(38,50,75,.07)}
+  .sec{font-family:var(--mono); font-size:11px; letter-spacing:3.5px; color:var(--coral); text-transform:uppercase; margin-bottom:6px}
+  .panel h2{font-family:var(--head); font-size:24px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; margin-bottom:8px}
+  .panel p.lede{color:var(--dim); font-size:15px; font-weight:600}
+  .panel p.lede b{color:var(--text)}
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:12px}
+  .stat{background:#FFF6E9; border:2px solid var(--line); border-radius:16px; padding:14px 16px}
+  .stat .num{font-family:var(--mono); font-size:27px; font-weight:700; color:var(--teal)}
+  .stat .lbl{font-family:var(--mono); font-size:10.5px; letter-spacing:2px; color:var(--dim); text-transform:uppercase; margin-top:2px}
+  .bar{height:14px; background:#FFF1DC; border:2px solid var(--line); border-radius:999px; overflow:hidden; margin-top:16px}
+  .bar i{display:block; height:100%; background:linear-gradient(90deg,var(--sun),var(--coral)); width:0%;
+    box-shadow:0 0 12px rgba(255,197,49,.6)}
+  .barlbl{font-family:var(--mono); font-size:11.5px; letter-spacing:1.5px; color:var(--dim); margin-top:7px}
+  .mintrow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:16px}
+  .mintrow input[type=number]{width:110px; background:#FFF6E9; border:2px solid var(--line); color:var(--text);
+    border-radius:12px; padding:12px; font-size:17px; font-weight:700; font-family:var(--mono)}
+  .quick{display:flex; gap:6px}
+  .quick button{background:#FFF6E9; color:var(--text); border:2px solid var(--line); padding:10px 13px; font-family:var(--mono)}
+  #mintBtn{background:var(--teal); color:#fff; padding:13px 26px; font-size:16px; text-transform:uppercase; letter-spacing:1px;
+    box-shadow:0 8px 20px rgba(0,184,169,.35)}
+  #quoteBox{margin-top:12px; font-size:14.5px; color:var(--dim); font-family:var(--mono)}
+  #quoteBox b{color:var(--coral)}
+  #statusBox{margin-top:10px; font-size:14px; min-height:20px; font-weight:700}
+  .refbox{border:2px dashed rgba(63,167,245,.55); background:rgba(63,167,245,.06); border-radius:16px; padding:14px 16px; margin-top:16px; display:none}
+  .refbox .t{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--sky); text-transform:uppercase}
+  .refbox .link{font-family:var(--mono); font-size:13.5px; word-break:break-all; margin:8px 0 10px; color:var(--text)}
+  .refbox button{background:var(--sky); color:#fff; padding:9px 16px; font-size:13px; text-transform:uppercase; letter-spacing:1px}
+  .refbox .ok{margin-left:10px; font-size:13px; color:var(--teal)}
+  .sharebox{border:2px solid rgba(0,184,169,.45); background:rgba(0,184,169,.06); border-radius:16px; padding:14px 16px; margin-top:16px}
+  .sharebox .t{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--teal); text-transform:uppercase}
+  .sharebox p{color:var(--dim); font-size:13.5px; margin:6px 0 10px; font-weight:600}
+  #shareBtn{background:var(--text); color:#fff; padding:10px 18px; font-size:13.5px; text-transform:uppercase; letter-spacing:1px}
+  .sharebox .ok{margin-left:10px; font-size:13px; color:var(--teal)}
+  .step2{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--coral); text-transform:uppercase; margin-top:18px}
+  .arrival{display:none; border:2px solid rgba(0,184,169,.45); background:rgba(0,184,169,.07); color:var(--text);
+    border-radius:14px; padding:10px 14px; margin-top:14px; font-size:14px; font-weight:700}
+  table{width:100%; border-collapse:collapse; margin-top:10px; font-size:15px}
+  td{padding:9px 6px; border-bottom:2px solid #FAF0DD}
+  td:first-child{color:var(--dim); font-weight:600}
+  td:last-child{text-align:right; font-weight:800}
+  table.board td:first-child{color:var(--coral); font-family:var(--mono); width:52px}
+  table.board td.addr{font-family:var(--mono); font-size:13.5px; text-align:left}
+  table.board td:last-child{color:var(--teal)}
+  .boardnote{font-family:var(--mono); font-size:11.5px; color:var(--dim); margin-top:10px; letter-spacing:.5px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:14px}
+  .card{background:#FFF6E9; border:2px solid var(--line); border-radius:18px; padding:18px; position:relative}
+  .card .no{font-family:var(--mono); color:var(--coral); font-size:12px; letter-spacing:2px}
+  .card h3{font-family:var(--head); margin:6px 0 4px; font-size:17px; font-weight:600; text-transform:uppercase; letter-spacing:.5px}
+  .card p{font-size:14.5px; color:var(--dim); font-weight:600}
+  .promptbox{background:#2B3A55; border:2px solid #2B3A55; border-radius:16px; padding:16px; margin-top:12px}
+  .promptbox pre{white-space:pre-wrap; word-break:break-word; font-size:13px; line-height:1.55; max-height:300px; overflow:auto;
+    color:#F4F7FF; font-family:var(--mono)}
+  #copyBtn{background:var(--sun); color:#4A3200; padding:11px 18px; margin-top:12px; text-transform:uppercase; letter-spacing:1px; font-size:13px}
+  details{border-bottom:2px solid #FAF0DD; padding:13px 2px}
+  summary{cursor:pointer; font-weight:800}
+  details p{color:var(--dim); font-size:14.5px; margin-top:6px; font-weight:600}
+  .foot{margin-top:36px; text-align:center; color:var(--dim); font-size:13px; font-family:var(--mono); letter-spacing:1px}
+  .warn{border:2px solid rgba(255,107,94,.5); background:rgba(255,107,94,.06); border-radius:16px; padding:16px 18px; margin-top:24px; font-size:14.5px; font-weight:600}
+  .warn b{color:var(--coral); letter-spacing:1px}
+  #diag{margin-top:14px; font-size:11px; color:var(--dim); text-align:center; font-family:var(--mono)}
+  code{background:#FFF1DC; border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:13px; word-break:break-all; font-family:var(--mono)}
+  @media (prefers-reduced-motion: reduce){ .ticker .track{animation:none} }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="#00B8A9" stroke-width="3" stroke-linejoin="round"><polygon points="58,8 98,44 56,38" fill="rgba(0,184,169,.16)"/><polygon points="16,56 56,38 72,60 38,72" fill="rgba(255,138,92,.18)" stroke="#FF8A5C"/><polygon points="72,60 96,56 76,46"/><polygon points="16,56 4,74 36,70" stroke="#FF8A5C"/></g></svg>
+      <div>
+        <div class="name">WAR NEED <span>OVER</span></div>
+        <div class="sub">PEACE PROTOCOL // BSC</div>
+      </div>
+    </div>
+    <button id="wcBtn">Connect Wallet</button>
+  </header>
+  <div id="headStatus"></div>
+
+  <section class="hero">
+    <div class="coords">SIGNAL 56 · BNB SMART CHAIN · EST. 2026</div>
+    <svg class="doveArt" viewBox="0 0 120 90" role="img" aria-label="Geometric dove">
+      <g fill="none" stroke="#00B8A9" stroke-width="2.4" stroke-linejoin="round">
+        <polygon points="58,8 98,44 56,38" fill="rgba(0,184,169,.15)"/>
+        <polygon points="16,56 56,38 72,60 38,72" fill="rgba(255,138,92,.16)" stroke="#FF8A5C"/>
+        <polygon points="72,60 96,56 76,46"/>
+        <polygon points="16,56 4,74 36,70" stroke="#FF8A5C"/>
+        <line x1="88" y1="52" x2="106" y2="44" stroke="#FF8A5C"/>
+        <ellipse cx="108" cy="43" rx="5" ry="2.6" fill="#FF8A5C" stroke="none" transform="rotate(-24 108 43)"/>
+      </g>
+    </svg>
+    <h1>WAR NEED<br><span class="stroke">OVER</span></h1>
+    <p class="tagline">Every war in history ended the same way: people sat down, talked, and went home.
+    We're just skipping to the going-home part. <b>Send memes, not missiles.</b>
+    The only explosion allowed here is the chart.</p>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="track" id="tickerTrack">
+    <span>FIRST 3,000 SHARES <i>FREE</i> FOR AGENT ID HOLDERS</span><span>1 SHARE = <i>1,000,000 WNO</i></span><span>SEND MEMES, <i>NOT MISSILES</i></span><span>NO ADMIN KEYS · NO TAX · <i>NO RE-MINT</i></span><span>PEACE IS THE <i>NARRATIVE</i></span>
+  </div></div>
+
+  <section class="panel">
+    <div class="sec">01 // Transmission</div>
+    <h2>Sale status</h2>
+    <div class="stats">
+      <div class="stat"><div class="num" id="stSold">—</div><div class="lbl">Shares sold / 6,000</div></div>
+      <div class="stat"><div class="num" id="stFreeLeft">—</div><div class="lbl">Free shares left</div></div>
+      <div class="stat"><div class="num" id="stPrice">0.001 BNB</div><div class="lbl">Price per paid share</div></div>
+      <div class="stat"><div class="num" id="stMine">—</div><div class="lbl">Your shares</div></div>
+    </div>
+    <div class="bar"><i id="freeBar"></i></div>
+    <div class="barlbl" id="freeBarLbl">FREE QUOTA: —</div>
+  </section>
+
+  <section class="panel">
+    <div class="sec">02 // Enlist</div>
+    <h2>Claim your share of peace</h2>
+    <p class="lede">Every Agent ID wallet gets <b>1 free share</b> while the 3,000-share free quota lasts.
+    After that it's 0.001 BNB per share, max 20 shares per transaction. Overpaid BNB is refunded in the same transaction —
+    the contract is more honest than most ceasefire agreements.</p>
+    <div class="arrival" id="arrivalBox">You arrived through a Peace Ambassador's link — your claim will credit them on the board below.</div>
+    <div class="sharebox" id="shareBox">
+      <div class="t">Step 1 — Spread the signal</div>
+      <p>Claims on this page unlock after you share WNO on X. One post from you can bring the next hundred peacekeepers.</p>
+      <button id="shareBtn">Share on X</button><span class="ok" id="shareMsg"></span>
+    </div>
+    <div class="step2">Step 2 — Claim</div>
+    <div class="mintrow">
+      <input type="number" id="sharesInput" min="1" max="20" value="1">
+      <div class="quick">
+        <button data-shares="1">1</button><button data-shares="5">5</button>
+        <button data-shares="10">10</button><button data-shares="20">20</button>
+      </div>
+      <button id="mintBtn" disabled>Connect first, then peace</button>
+    </div>
+    <div id="quoteBox">Connect your wallet to see your exact price.</div>
+    <div id="statusBox"></div>
+    <div class="refbox" id="refBox">
+      <div class="t">Your personal claim link</div>
+      <div class="link" id="refLink">—</div>
+      <button id="refCopyBtn">Copy link</button><span class="ok" id="refCopyMsg"></span>
+      <p style="color:var(--dim); font-size:13.5px; margin-top:10px">Share it anywhere. Every claim made through your link records you
+      as the referrer on-chain — and climbs you up the Peace Ambassadors board below. Peace spreads peer-to-peer.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sec">03 // Honours</div>
+    <h2>Peace Ambassadors</h2>
+    <p class="lede">The wallets spreading peace the furthest. Ranked by claims made through their personal link —
+    counted from the contract's own on-chain <b>MintShares</b> events, no self-reported numbers.</p>
+    <table class="board">
+      <thead><tr><td>#</td><td style="text-align:left">Ambassador</td><td style="text-align:right">Claims referred</td></tr></thead>
+      <tbody id="boardBody"></tbody>
+    </table>
+    <p class="boardnote" id="boardNote"></p>
+  </section>
+
+  <section class="panel">
+    <div class="sec">04 // Doctrine</div>
+    <h2>Why does this token exist?</h2>
+    <div class="grid">
+      <div class="card"><div class="no">A—01</div><h3>Peace is the best narrative</h3>
+        <p>Generals get medals. Politicians get podiums. Everybody else just wants to go home. This token is for everybody else.</p></div>
+      <div class="card"><div class="no">A—02</div><h3>Built by agents, for agents</h3>
+        <p>Minting is open only to Binance Agent ID wallets. Humans may watch from the sidelines — a historically safe position.</p></div>
+      <div class="card"><div class="no">A—03</div><h3>No admin keys, no tricks</h3>
+        <p>No owner functions, no tax, no re-minting. All 6 billion WNO are locked in the contract and only leave through share purchases. Fewer backdoors than a peace treaty.</p></div>
+      <div class="card"><div class="no">A—04</div><h3>3,000 free, then it's over</h3>
+        <p>Half the shares are given away free to the agents who show up first. After share #3,000 everyone pays the same price. No insider lane — insiders queue like everyone.</p></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sec">05 // Manifest</div>
+    <h2>Tokenomics</h2>
+    <table>
+      <tr><td>Name / symbol</td><td>War Need Over / WNO</td></tr>
+      <tr><td>Network</td><td>BNB Smart Chain (BSC)</td></tr>
+      <tr><td>Total supply</td><td>6,000,000,000 WNO</td></tr>
+      <tr><td>Total shares</td><td>6,000 shares × 1,000,000 WNO</td></tr>
+      <tr><td>Free shares</td><td>First 3,000 — 1 per Agent ID</td></tr>
+      <tr><td>Paid share price</td><td>0.001 BNB</td></tr>
+      <tr><td>Contract</td><td id="contractCell"><code>0x8C969a4CD49E4774908e667702C3d7C3ece164D0</code></td></tr>
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="sec">06 // Agent uplink</div>
+    <h2>For AI Agents</h2>
+    <p class="lede">Give your AI agent this one prompt and it does the rest — safely, with a preview and your confirmation before anything is sent.</p>
+    <div class="promptbox">
+<pre id="agentPrompt">You are helping me join War Need Over (WNO), a memecoin on BNB Smart Chain (chainId 56).
+The token and its share sale live in ONE contract. Read its address from the Tokenomics
+table of the official WNO page (it must match the contract verified on BscScan).
+
+Facts: 6,000 shares total, 1 share = 1,000,000 WNO. The first 3,000 shares include
+1 FREE share per Binance Agent ID wallet; paid shares cost 0.001 BNB each;
+max 20 shares per transaction.
+
+STEP 1 — SHARE FIRST (required before any mint): Tell me to post about WNO on X first,
+using the post text below with MY wallet address in the link, and wait until I confirm
+that I have posted (or I give you the post link). Do not mint before that.
+Post text: "I just joined War Need Over (WNO) — the peace memecoin on BSC. First 3,000
+shares are FREE for Agent ID holders. Send memes, not missiles. Claim yours before the
+free quota ends: https://war-need-over.github.io/war-need-over/?ref=&lt;MY WALLET ADDRESS&gt; #WarNeedOver"
+STEP 2 — Check my wallet holds a Binance Agent ID on BSC. If not, stop and tell me.
+STEP 3 — Verify on-chain: call overview() and quote(myAddress, N) read-only for the
+number of shares I asked for (default 1). Never pay more than the returned cost.
+STEP 4 — Show me a preview first: shares, free vs paid split, exact BNB value, risks,
+and any authority or approval changes. NEVER call approve — this flow has none.
+If anything differs from quote(), stop and tell me.
+STEP 5 — Mint only after my explicit confirmation: call mint(N, referrer) payable with
+value exactly equal to the quote() cost. Referrer = the address I gave you, otherwise
+0x0000000000000000000000000000000000000000.
+STEP 6 — Verify my WNO balance increased by N x 1,000,000 and show me the BscScan
+transaction link.
+
+This is a memecoin with no promised value — remind me of that before I confirm.</pre>
+      <button id="copyBtn">Copy Prompt</button>
+      <span id="copyMsg" style="margin-left:10px; font-size:14px"></span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="sec">07 // Field manual</div>
+    <h2>FAQ</h2>
+    <details><summary>Who can mint?</summary>
+      <p>Binance Agentic Wallets holding an Agent ID (.ai). The contract checks Agent ID ownership on-chain — no forms, no whitelist drama, no negotiations in Geneva.</p></details>
+    <details><summary>Why only 1 free share per wallet?</summary>
+      <p>So 3,000 different agents get one, instead of 1 agent with 3,000 wallets getting all of them. Peace is for sharing.</p></details>
+    <details><summary>What is the Peace Ambassadors board?</summary>
+      <p>Every claim made through someone's personal ?ref= link records that wallet as the referrer in the contract's MintShares event. The board ranks those referrers. It is rebuilt from on-chain events and republished by the project's agent — check any entry against BscScan yourself.</p></details>
+    <details><summary>Can my AI agent mint for me?</summary>
+      <p>Yes — copy the prompt in the "For AI Agents" section above and paste it into your agent. It will verify everything and ask for your confirmation before sending.</p></details>
+    <details><summary>Is this an investment?</summary>
+      <p>No. It's a peace meme for fun. Read the red box below — that part is not a joke, on purpose.</p></details>
+  </section>
+
+  <div class="warn"><b>THE SERIOUS PART:</b> WNO is a memecoin with no intrinsic value and no promises.
+  The price can go up, can go to zero, and will probably go to zero. Not affiliated with any government, army, peace
+  organization, or Binance. This is not financial advice. Never spend money you cannot afford to lose.
+  The contract is open and verified on Sourcify/BscScan — check it yourself before minting.</div>
+
+  <p class="foot">MADE WITH HOPE · WAR NEED OVER · BSC<br>
+  CONTRACT: <code>0x8C969a4CD49E4774908e667702C3d7C3ece164D0</code></p>
+  <p id="diag">diagnostics: starting…</p>
+</div>
+
+<script>
+// ===== War Need Over — zero external JS libraries. Raw EIP-1193 + fetch JSON-RPC. =====
+var CONTRACT = "0x8C969a4CD49E4774908e667702C3d7C3ece164D0";
+var WC_PROJECT_ID = "ff5985647ed78916bed0155d2ff84a1c";
+var RPCS = ["https://bsc-dataseed.binance.org", "https://bsc-dataseed1.binance.org", "https://bsc-rpc.publicnode.com"];
+var SEL = { overview:"0x3a2056f1", quote:"0x8f79306e", mint:"0x94bf804d", sharesOf:"0xf5eb42dc" };
+var activeProvider = null, account = null, connecting = false;
+var shared = false, quoteOk = false;
+try{ shared = sessionStorage.getItem("wno_shared") === "1"; }catch(e){}
+
+// ---- Peace Ambassadors snapshot (rebuilt from on-chain MintShares events, republished periodically) ----
+var REF_BOARD = [{ a: "0xCd0739785CcBE9bA6e14DD77B52F230b2c367A10", c: 14 }, { a: "0xDA0aF6C2D6040Cde8F37a0C05AAbEd0936e9486f", c: 11 }, { a: "0x2c0c62C3701CF9aCBaD5E71Ab60F57D54FCb321B", c: 6 }, { a: "0xf99e47F366F60F90e210b347547A17f94b401E15", c: 5 }, { a: "0x3CC7A2268CC4ab868B7FF4690Cf75E2457eAa8B0", c: 4 }, { a: "0x1ABFeC7535310aB65536A75A6c6f304031465284", c: 3 }, { a: "0x1BE30ad4D5BA6cde8f86C9ca49dC2074AB0F52a5", c: 2 }, { a: "0x1EEf6ba50F29E7470353cADB91239Ee2E5D09F6A", c: 2 }, { a: "0xF69EF2dfc09218B3EADdEf5c8cFD9cdCc693DAdC", c: 2 }, { a: "0x0000000000000000000000000000000000000001", c: 1 }];
+var REF_NOTE = "SNAPSHOT · ON-CHAIN MINTSHARES EVENTS UP TO BLOCK 132,838,849 · 85 OF 1,204 CLAIMS ARRIVED WITH A REFERRER · UPDATED 11 NOV 2026 BY THE PROJECT'S AGENT";
+
+function $(id){ return document.getElementById(id); }
+function fmt(n){ return Number(n).toLocaleString("en-US"); }
+function diag(msg){ var d = $("diag"); if (d) d.textContent = "diagnostics: " + msg; }
+function status(msg){ $("statusBox").innerHTML = msg; $("headStatus").innerHTML = msg; }
+function padAddr(a){ return "000000000000000000000000" + a.replace(/^0x/i,"").toLowerCase(); }
+function padUint(v){ var h = BigInt(v).toString(16); while (h.length < 64) h = "0" + h; return h; }
+function words(hex){
+  var out = [], h = hex.replace(/^0x/i,"");
+  for (var i = 0; i + 64 <= h.length; i += 64) out.push(BigInt("0x" + h.substr(i, 64)));
+  return out;
+}
+function fmtBNB(wei){
+  var s = wei.toString(), neg = false;
+  while (s.length <= 18) s = "0" + s;
+  var int = s.slice(0, s.length - 18), frac = s.slice(s.length - 18).replace(/0+$/,"");
+  return (neg ? "-" : "") + int + (frac ? "." + frac.slice(0, 6) : "");
+}
+
+// ---- read-only RPC via fetch (works with no wallet at all) ----
+async function rpcCall(data){
+  var lastErr = null;
+  for (var i = 0; i < RPCS.length; i++){
+    try{
+      var r = await fetch(RPCS[i], { method:"POST", headers:{"content-type":"application/json"},
+        body: JSON.stringify({ jsonrpc:"2.0", id:1, method:"eth_call", params:[{ to:CONTRACT, data:data }, "latest"] }) });
+      var j = await r.json();
+      if (j.result) return j.result;
+      lastErr = new Error(j.error ? j.error.message : "empty result");
+    }catch(e){ lastErr = e; }
+  }
+  throw lastErr || new Error("RPC unreachable");
+}
+async function rpcMethod(method, params){
+  for (var i = 0; i < RPCS.length; i++){
+    try{
+      var r = await fetch(RPCS[i], { method:"POST", headers:{"content-type":"application/json"},
+        body: JSON.stringify({ jsonrpc:"2.0", id:1, method:method, params:params }) });
+      var j = await r.json();
+      if (j.result !== undefined) return j.result;
+    }catch(e){}
+  }
+  return null;
+}
+
+async function refreshStats(){
+  try{
+    var res = await rpcCall(SEL.overview);
+    var w = words(res);
+    $("stSold").textContent = fmt(w[0]);
+    $("stFreeLeft").textContent = fmt(w[3]);
+    var pct = (1 - Number(w[3]) / 3000) * 100;
+    $("freeBar").style.width = pct + "%";
+    $("freeBarLbl").textContent = "FREE QUOTA: " + fmt(w[3]) + " / 3,000 LEFT";
+    if (account){
+      var s = await rpcCall(SEL.sharesOf + padAddr(account));
+      $("stMine").textContent = fmt(words(s)[0]);
+      updateQuote();
+    }
+  }catch(e){ diag("page JS OK · stats read failed (" + e.message + ")"); }
+}
+
+async function ensureBsc(provider){
+  var chainId = await provider.request({ method:"eth_chainId" });
+  if (chainId === "0x38") return;
+  try{
+    await provider.request({ method:"wallet_switchEthereumChain", params:[{ chainId:"0x38" }] });
+  }catch(e){
+    if (e && (e.code === 4902 || /unrecognized|not added/i.test(e.message || ""))){
+      await provider.request({ method:"wallet_addEthereumChain", params:[{
+        chainId:"0x38", chainName:"BNB Smart Chain", rpcUrls:[RPCS[0]],
+        nativeCurrency:{ name:"BNB", symbol:"BNB", decimals:18 }, blockExplorerUrls:["https://bscscan.com"] }] });
+    } else throw e;
+  }
+}
+
+// ---- referral link + ambassadors board ----
+function showRef(){
+  if (!account) return;
+  $("refLink").textContent = "https://war-need-over.github.io/war-need-over/?ref=" + account;
+  $("refBox").style.display = "block";
+}
+function renderBoard(){
+  var tb = $("boardBody"), html = "";
+  if (!REF_BOARD.length){
+    html = "<tr><td>—</td><td class='addr'>No ambassadors yet — the first spot is wide open.</td><td>0</td></tr>";
+  } else {
+    for (var i = 0; i < REF_BOARD.length; i++){
+      var r = REF_BOARD[i], short = r.a.slice(0,6) + "…" + r.a.slice(-4);
+      html += "<tr><td>" + String(i + 1).padStart(2, "0") + "</td><td class='addr'><a href='https://bscscan.com/address/" +
+        r.a + "' target='_blank'>" + short + "</a></td><td>" + r.c + "</td></tr>";
+    }
+  }
+  tb.innerHTML = html;
+  $("boardNote").textContent = REF_NOTE;
+}
+
+// ---- share-to-claim gate (page-level: the contract itself cannot check X) ----
+function gateMint(){
+  if (!account){ $("mintBtn").disabled = true; return; }
+  $("mintBtn").disabled = !(quoteOk && shared);
+  if (quoteOk && !shared) $("mintBtn").textContent = "Locked — share first";
+}
+function shareUrl(){
+  if (account) return "https://war-need-over.github.io/war-need-over/?ref=" + account;
+  var ref = new URLSearchParams(location.search).get("ref");
+  if (ref && /^0x[0-9a-fA-F]{40}$/.test(ref)) return "https://war-need-over.github.io/war-need-over/?ref=" + ref;
+  return "https://war-need-over.github.io/war-need-over/";
+}
+function doShare(){
+  var text = "I just joined War Need Over (WNO) — the peace memecoin on BSC. First 3,000 shares are FREE for Agent ID holders. Send memes, not missiles. Claim yours before the free quota ends:";
+  var u = "https://x.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(shareUrl());
+  window.open(u, "_blank", "noopener,width=600,height=540");
+  shared = true;
+  try{ sessionStorage.setItem("wno_shared", "1"); }catch(e){}
+  $("shareMsg").textContent = "Shared ✓ Claim unlocked — thank you, peacekeeper.";
+  $("shareBtn").textContent = "Share again";
+  gateMint();
+}
+
+async function finishConnect(provider, kind, accs){
+  activeProvider = provider;
+  account = accs[0];
+  $("wcBtn").textContent = "Checking network…";
+  await ensureBsc(provider);
+  $("wcBtn").textContent = "✓ " + account.slice(0,6) + "…" + account.slice(-4);
+  $("wcBtn").disabled = false;
+  status("Wallet connected (" + kind + "): " + account);
+  diag("page JS OK · provider: " + kind + " · chain: BSC · account connected");
+  showRef();
+  if (provider.on){
+    provider.on("accountsChanged", function(next){
+      if (connecting) return; // wallets often re-emit during connect/switch — never tear down for it
+      if (!next || !next.length){
+        account = null; activeProvider = null;
+        $("wcBtn").textContent = "Connect Wallet";
+        $("mintBtn").disabled = true; $("mintBtn").textContent = "Connect first, then peace";
+        $("refBox").style.display = "none";
+        status("Wallet disconnected in the wallet app. Tap Connect Wallet to reconnect.");
+        diag("page JS OK · provider disconnected by wallet");
+      } else {
+        account = next[0];
+        $("wcBtn").textContent = "✓ " + account.slice(0,6) + "…" + account.slice(-4);
+        showRef();
+        refreshStats();
+      }
+    });
+    provider.on("chainChanged", function(){
+      if (connecting) return;
+      diag("page JS OK · network changed in wallet · re-reading sale stats");
+      refreshStats();
+    });
+  }
+  connecting = false;
+  refreshStats();
+}
+
+// ---- WalletConnect (Reown) — library loaded lazily, only when this door is chosen ----
+function loadScript(url, timeoutMs){
+  return new Promise(function(resolve, reject){
+    var s = document.createElement("script");
+    var t = setTimeout(function(){ s.remove(); reject(new Error("timeout")); }, timeoutMs);
+    s.src = url; s.async = true;
+    s.onload = function(){ clearTimeout(t); resolve(); };
+    s.onerror = function(){ clearTimeout(t); s.remove(); reject(new Error("load failed")); };
+    document.body.appendChild(s);
+  });
+}
+var WC_URLS = [
+  "wc.js",
+  "https://unpkg.com/@walletconnect/ethereum-provider@2.21.0/dist/index.umd.js",
+  "https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@2.21.0/dist/index.umd.js"
+];
+function wcCtor(){
+  if (window.EthereumProvider) return window.EthereumProvider;
+  var ns = window["@walletconnect/ethereum-provider"];
+  return (ns && ns.EthereumProvider) ? ns.EthereumProvider : null;
+}
+async function connectWC(){
+  var btn = $("wcBtn");
+  connecting = true;
+  try{
+    btn.disabled = true; btn.textContent = "Loading WalletConnect…";
+    status("Loading the WalletConnect library…");
+    if (!wcCtor()){
+      var ok = false;
+      for (var i = 0; i < WC_URLS.length && !ok; i++){
+        try{ await loadScript(WC_URLS[i], 20000); ok = !!wcCtor(); if (ok) diag("page JS OK · WalletConnect library loaded from: " + WC_URLS[i]); }catch(e){}
+      }
+      if (!ok) throw new Error("WalletConnect library could not be loaded from any source — check your connection and try again.");
+    }
+    var Ctor = wcCtor();
+    btn.textContent = "Opening WalletConnect…";
+    status("A WalletConnect window is opening — pick your wallet (e.g. Bitget) and approve there.");
+    var provider = await Ctor.init({
+      projectId: WC_PROJECT_ID, chains: [56], showQrModal: true,
+      metadata: { name: "War Need Over (WNO)", description: "The peace memecoin on BSC",
+        url: "https://war-need-over.github.io/war-need-over", icons: [] }
+    });
+    await provider.connect();
+    var accs = (provider.accounts && provider.accounts.length) ? provider.accounts
+      : await provider.request({ method:"eth_accounts" });
+    if (!accs || !accs.length) throw new Error("WalletConnect returned no account");
+    await finishConnect(provider, "WalletConnect", accs);
+  }catch(e){
+    status("WalletConnect failed: " + (e.message || e));
+    diag("page JS OK · WalletConnect error: " + (e.message || e));
+    btn.textContent = "Connect Wallet"; btn.disabled = false; connecting = false;
+  }
+}
+
+// ---- quote + mint (raw calldata) ----
+function shareCount(){
+  var v = parseInt($("sharesInput").value || "1", 10);
+  if (isNaN(v)) v = 1;
+  return Math.max(1, Math.min(20, v));
+}
+async function getQuote(){
+  var data = SEL.quote + padAddr(account) + padUint(shareCount());
+  var w = words(await rpcCall(data));
+  return { cost: w[0], free: w[1], paid: w[2] };
+}
+async function updateQuote(){
+  if (!account) return;
+  try{
+    var q = await getQuote();
+    $("quoteBox").innerHTML = "For <b>" + shareCount() + " share(s)</b>: free <b>" + q.free + "</b> · paid <b>" + q.paid +
+      "</b> · total <b>" + fmtBNB(q.cost) + " BNB</b> · you receive <b>" + fmt(shareCount() * 1000000) + " WNO</b>";
+    quoteOk = true;
+    $("mintBtn").textContent = q.cost === 0n ? "Claim FREE share" : "Mint now — for peace!";
+    gateMint();
+  }catch(e){
+    $("quoteBox").textContent = "Quote unavailable: " + e.message;
+    quoteOk = false;
+    $("mintBtn").disabled = true;
+  }
+}
+async function doMint(){
+  if (!activeProvider || !account) return;
+  if (!shared){ status("One step first: share WNO on X to unlock the claim."); return; }
+  var shares = shareCount();
+  var ref = new URLSearchParams(location.search).get("ref");
+  if (!ref || !/^0x[0-9a-fA-F]{40}$/.test(ref)) ref = "0x0000000000000000000000000000000000000000";
+  try{
+    var q = await getQuote();
+    $("mintBtn").disabled = true;
+    status("Waiting for your signature in the wallet…");
+    var data = SEL.mint + padUint(shares) + padAddr(ref);
+    var hash = await activeProvider.request({ method:"eth_sendTransaction",
+      params:[{ from: account, to: CONTRACT, data: data, value: "0x" + q.cost.toString(16) }] });
+    status("Sent: " + hash + " — waiting for confirmation…");
+    for (var i = 0; i < 45; i++){
+      await new Promise(function(r){ setTimeout(r, 2000); });
+      var rc = await rpcMethod("eth_getTransactionReceipt", [hash]);
+      if (rc){
+        if (rc.status === "0x1"){
+          status("PEACE SECURED! Tx: <a href='https://bscscan.com/tx/" + hash + "' target='_blank'>" + hash.slice(0,18) + "…</a>");
+          refreshStats();
+        } else {
+          status("Transaction reverted on-chain: <a href='https://bscscan.com/tx/" + hash + "' target='_blank'>view on BscScan</a>");
+          $("mintBtn").disabled = false;
+        }
+        return;
+      }
+    }
+    status("Still pending: <a href='https://bscscan.com/tx/" + hash + "' target='_blank'>check on BscScan</a>");
+    $("mintBtn").disabled = false;
+  }catch(e){
+    status("Failed: " + (e.message || e));
+    $("mintBtn").disabled = false;
+  }
+}
+
+// ---- wiring ----
+$("wcBtn").addEventListener("click", connectWC);
+$("mintBtn").addEventListener("click", doMint);
+$("sharesInput").addEventListener("change", updateQuote);
+var qs = document.querySelectorAll(".quick button");
+for (var i = 0; i < qs.length; i++) qs[i].addEventListener("click", function(){
+  $("sharesInput").value = this.getAttribute("data-shares"); updateQuote();
+});
+async function copyText(text, okEl, okMsg){
+  try{ await navigator.clipboard.writeText(text); okEl.textContent = okMsg; }
+  catch(e){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); okEl.textContent = okMsg; }
+    catch(e2){ okEl.textContent = "Copy failed — long-press the text and copy manually."; }
+    ta.remove();
+  }
+}
+$("copyBtn").addEventListener("click", function(){
+  copyText($("agentPrompt").innerText, $("copyMsg"), "Copied ✓ Now paste it into your agent.");
+});
+$("refCopyBtn").addEventListener("click", function(){
+  copyText($("refLink").textContent, $("refCopyMsg"), "Copied ✓");
+});
+
+$("shareBtn").addEventListener("click", doShare);
+if (shared){
+  $("shareMsg").textContent = "Shared ✓ Claim unlocked — thank you, peacekeeper.";
+  $("shareBtn").textContent = "Share again";
+}
+
+// arrival via an ambassador link?
+(function(){
+  var ref = new URLSearchParams(location.search).get("ref");
+  if (ref && /^0x[0-9a-fA-F]{40}$/.test(ref) && !/^0x0{40}$/.test(ref)) $("arrivalBox").style.display = "block";
+})();
+// seamless ticker: duplicate the track content once
+(function(){ var t = $("tickerTrack"); t.innerHTML += t.innerHTML; })();
+
+diag("page JS OK · WalletConnect ready · sale stats loading (no external libraries)");
+renderBoard();
+refreshStats();
+</script>
+<script>
+// ---- starfield backdrop (hand-rolled, no libraries) ----
+(function(){
+  var cv = document.getElementById("stars"), ctx = cv.getContext("2d"), stars = [], W, H;
+  function size(){
+    W = cv.width = innerWidth; H = cv.height = innerHeight;
+    stars = [];
+    var n = Math.min(130, Math.floor(W * H / 16000));
+    for (var i = 0; i < n; i++) stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, s: Math.random() * .16 + .03, p: Math.random() * 6.28 });
+  }
+  size(); addEventListener("resize", size);
+  (function loop(t){
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++){
+      var st = stars[i];
+      st.y += st.s; if (st.y > H + 2) { st.y = -2; st.x = Math.random() * W; }
+      var a = .35 + .3 * Math.sin(t / 900 + st.p);
+      ctx.globalAlpha = a; ctx.fillStyle = "#FFB59E";
+      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, 6.29); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  })(0);
+})();
+</script>
+</body>
+</html>

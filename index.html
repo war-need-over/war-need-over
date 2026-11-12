@@ -270,17 +270,14 @@ max 20 shares per transaction.
 STEP 1 — SHARE FIRST (required before any mint): Tell me to post about WNO on X first,
 using the post text below with MY wallet address in the link, and wait until I confirm
 that I have posted (or I give you the post link). Do not mint before that.
-Post text: "I just joined War Need Over (WNO) 🕊️
+Post text: "I just joined War Need Over (WNO) — the peace memecoin on BSC. 🕊️
 
-The peace memecoin on BNB Chain
+First 3,000 shares are FREE for Agent ID holders. Send memes, not missiles.
 
-✅ First 3,000 shares FREE for Agent ID holders
+Claim yours before the free quota ends:
+https://war-need-over.github.io/war-need-over/?ref=&lt;MY WALLET ADDRESS&gt;
 
-Send memes, not missiles
-
-Claim yours before the free quota ends 👇
-
-https://war-need-over.github.io/war-need-over/?ref=&lt;MY WALLET ADDRESS&gt; #WarNeedOver"
+Follow @WARNEEDOVER #WarNeedOver"
 STEP 2 — Check my wallet holds a Binance Agent ID on BSC. If not, stop and tell me.
 STEP 3 — Verify on-chain: call overview() and quote(myAddress, N) read-only for the
 number of shares I asked for (default 1). Never pay more than the returned cost.
@@ -447,8 +444,8 @@ function shareUrl(){
   return "https://war-need-over.github.io/war-need-over/";
 }
 function doShare(){
-  var text = "I just joined War Need Over (WNO) 🕊️\n\nThe peace memecoin on BNB Chain\n\n✅ First 3,000 shares FREE for Agent ID holders\n\nSend memes, not missiles\n\nClaim yours before the free quota ends 👇";
-  var u = "https://x.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(shareUrl());
+  var text = "I just joined War Need Over (WNO) — the peace memecoin on BSC. 🕊️\n\nFirst 3,000 shares are FREE for Agent ID holders. Send memes, not missiles.\n\nClaim yours before the free quota ends:\n" + shareUrl() + "\n\nFollow @WARNEEDOVER #WarNeedOver";
+  var u = "https://x.com/intent/tweet?text=" + encodeURIComponent(text);
   window.open(u, "_blank", "noopener,width=600,height=540");
   shared = true;
   try{ sessionStorage.setItem("wno_shared", "1"); }catch(e){}

@@ -7,170 +7,193 @@
 <meta name="description" content="War need over. A peace memecoin on BSC. First 3,000 shares FREE for Agent ID holders, then 0.001 BNB per share. Send memes, not missiles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,600;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FFF9F0; --panel:#FFFFFF; --panel2:#FFFDF8; --line:#F0DFC8;
-    --teal:#00B8A9; --coral:#FF6B5E; --sun:#FFC531; --sky:#3FA7F5; --grape:#8B7CF6;
-    --text:#26324B; --dim:#71809A;
-    --head:'Fredoka','Segoe UI',system-ui,sans-serif;
-    --mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
+    --paper:#f6f1e7; --paper2:#efe8d8; --ink:#16130c; --ink2:#4c4636; --ink3:#8a8271;
+    --rule:#16130c; --hair:#c9c0ab;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --body:Georgia,"Times New Roman",serif;
+    --mono:"Space Mono",ui-monospace,monospace;
   }
-  *{box-sizing:border-box; margin:0; padding:0}
-  html{background:var(--bg)}
-  body{
-    background:
-      radial-gradient(1000px 520px at 85% -10%, #FFE3C2 0, transparent 60%),
-      radial-gradient(900px 520px at -12% 30%, #D8F5E3 0, transparent 55%),
-      radial-gradient(900px 560px at 110% 75%, #D9F0FF 0, transparent 55%),
-      radial-gradient(700px 420px at 8% 108%, #FFE0EC 0, transparent 55%),
-      var(--bg);
-    color:var(--text); font-family:'Nunito','Segoe UI',system-ui,sans-serif; line-height:1.55;
-    overflow-x:hidden;
-  }
-  body::before{
-    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:radial-gradient(rgba(255,107,94,.10) 2.2px, transparent 2.6px),
-                     radial-gradient(rgba(0,184,169,.10) 2.2px, transparent 2.6px);
-    background-size:52px 52px, 52px 52px;
-    background-position:0 0, 26px 26px;
-    mask-image:radial-gradient(ellipse 95% 75% at 50% 0%, #000 25%, transparent 100%);
-  }
-  #stars{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5}
-  a{color:var(--sky); font-weight:700}
-  .wrap{max-width:920px; margin:0 auto; padding:0 18px 70px; position:relative; z-index:1}
-  header{display:flex; justify-content:space-between; align-items:center; padding:18px 0 10px; gap:10px; flex-wrap:wrap}
-  .logo{display:flex; align-items:center; gap:12px}
-  .logo .mark{width:42px; height:42px; flex:none}
-  .logo .name{font-family:var(--head); font-weight:700; font-size:20px; letter-spacing:1.5px}
-  .logo .name span{color:var(--coral)}
-  .logo .sub{font-family:var(--mono); font-size:10px; letter-spacing:3px; color:var(--dim)}
-  button{cursor:pointer; border:none; border-radius:999px; font-family:'Nunito',sans-serif; font-weight:800; transition:.15s; letter-spacing:.4px}
-  button:hover{transform:translateY(-2px)}
-  button:disabled{opacity:.45; cursor:not-allowed; transform:none}
-  #wcBtn{background:var(--sky); color:#fff; padding:12px 22px; font-size:14px; text-transform:uppercase; letter-spacing:1.5px;
-    box-shadow:0 6px 18px rgba(63,167,245,.35)}
-  #headStatus{text-align:center; font-size:13.5px; min-height:20px; padding:2px 0 4px; color:var(--dim); font-weight:700}
-  .hero{text-align:center; padding:30px 0 6px; position:relative}
-  .hero .coords{font-family:var(--mono); font-size:11px; letter-spacing:4px; color:var(--dim)}
-  .hero .doveArt{width:min(300px,62vw); margin:14px auto 2px; display:block; filter:drop-shadow(0 10px 22px rgba(255,138,92,.35))}
-  h1{font-family:var(--head); font-size:clamp(48px,11vw,104px); font-weight:700; line-height:.98; letter-spacing:1px; margin:8px 0 4px; text-transform:uppercase}
-  h1 .stroke{color:var(--sun); text-shadow:3px 3px 0 rgba(38,50,75,.14)}
-  h1 .lime{color:var(--teal)}
-  .tagline{font-size:clamp(15px,3.2vw,19px); color:var(--dim); font-weight:600; max-width:620px; margin:10px auto 0}
-  .tagline b{color:var(--text)}
-  .ticker{border-top:2px dashed var(--line); border-bottom:2px dashed var(--line); margin:26px 0 4px; overflow:hidden;
-    background:rgba(255,255,255,.6)}
-  .ticker .track{display:inline-flex; white-space:nowrap; animation:tick 30s linear infinite; padding:8px 0}
-  .ticker span{font-family:var(--mono); font-size:12px; letter-spacing:3px; color:var(--teal); padding-right:18px}
-  .ticker span i{color:var(--coral); font-style:normal}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.55;
+    background-image:radial-gradient(rgba(22,19,12,.045) 1px,transparent 1px);background-size:5px 5px}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 22px 40px}
+  ::selection{background:var(--ink);color:var(--paper)}
+
+  /* ---------- masthead ---------- */
+  .topline{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:2px;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--rule);padding-bottom:6px}
+  .masthead{text-align:center;border-bottom:4px double var(--rule);padding:16px 0 14px}
+  .masthead .paper-name{font-family:var(--serif);font-weight:900;font-size:clamp(44px,9.5vw,96px);
+    letter-spacing:.5px;line-height:.95;text-transform:uppercase}
+  .masthead .paper-name span{font-style:italic;font-weight:700}
+  .masthead .creed{font-family:var(--serif);font-style:italic;font-size:clamp(15px,2.4vw,20px);color:var(--ink2);margin-top:8px}
+  .dateline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-family:var(--mono);
+    font-size:11px;letter-spacing:1.6px;text-transform:uppercase;border-bottom:1px solid var(--rule);padding:7px 0}
+  .dateline b{font-weight:700}
+  #headStatus{font-family:var(--mono);font-size:12px;text-align:center;color:var(--ink2);padding-top:8px;min-height:14px}
+
+  /* ---------- wire ticker ---------- */
+  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;margin:16px 0 0;border:1px solid var(--ink)}
+  .ticker .track{display:inline-flex;white-space:nowrap;animation:tick 30s linear infinite;padding:7px 0}
+  .ticker span{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:0 26px;text-transform:uppercase}
+  .ticker i{font-style:normal;text-decoration:underline;text-underline-offset:3px}
   @keyframes tick{to{transform:translateX(-50%)}}
-  .panel{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:2px solid var(--line);
-    border-radius:22px; padding:24px; margin-top:24px; position:relative;
-    box-shadow:0 10px 30px rgba(38,50,75,.07)}
-  .sec{font-family:var(--mono); font-size:11px; letter-spacing:3.5px; color:var(--coral); text-transform:uppercase; margin-bottom:6px}
-  .panel h2{font-family:var(--head); font-size:24px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; margin-bottom:8px}
-  .panel p.lede{color:var(--dim); font-size:15px; font-weight:600}
-  .panel p.lede b{color:var(--text)}
-  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:12px}
-  .stat{background:#FFF6E9; border:2px solid var(--line); border-radius:16px; padding:14px 16px}
-  .stat .num{font-family:var(--mono); font-size:27px; font-weight:700; color:var(--teal)}
-  .stat .lbl{font-family:var(--mono); font-size:10.5px; letter-spacing:2px; color:var(--dim); text-transform:uppercase; margin-top:2px}
-  .bar{height:14px; background:#FFF1DC; border:2px solid var(--line); border-radius:999px; overflow:hidden; margin-top:16px}
-  .bar i{display:block; height:100%; background:linear-gradient(90deg,var(--sun),var(--coral)); width:0%;
-    box-shadow:0 0 12px rgba(255,197,49,.6)}
-  .barlbl{font-family:var(--mono); font-size:11.5px; letter-spacing:1.5px; color:var(--dim); margin-top:7px}
-  .mintrow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:16px}
-  .mintrow input[type=number]{width:110px; background:#FFF6E9; border:2px solid var(--line); color:var(--text);
-    border-radius:12px; padding:12px; font-size:17px; font-weight:700; font-family:var(--mono)}
-  .quick{display:flex; gap:6px}
-  .quick button{background:#FFF6E9; color:var(--text); border:2px solid var(--line); padding:10px 13px; font-family:var(--mono)}
-  #mintBtn{background:var(--teal); color:#fff; padding:13px 26px; font-size:16px; text-transform:uppercase; letter-spacing:1px;
-    box-shadow:0 8px 20px rgba(0,184,169,.35)}
-  #quoteBox{margin-top:12px; font-size:14.5px; color:var(--dim); font-family:var(--mono)}
-  #quoteBox b{color:var(--coral)}
-  #statusBox{margin-top:10px; font-size:14px; min-height:20px; font-weight:700}
-  .refbox{border:2px dashed rgba(63,167,245,.55); background:rgba(63,167,245,.06); border-radius:16px; padding:14px 16px; margin-top:16px; display:none}
-  .refbox .t{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--sky); text-transform:uppercase}
-  .refbox .link{font-family:var(--mono); font-size:13.5px; word-break:break-all; margin:8px 0 10px; color:var(--text)}
-  .refbox button{background:var(--sky); color:#fff; padding:9px 16px; font-size:13px; text-transform:uppercase; letter-spacing:1px}
-  .refbox .ok{margin-left:10px; font-size:13px; color:var(--teal)}
-  .sharebox{border:2px solid rgba(0,184,169,.45); background:rgba(0,184,169,.06); border-radius:16px; padding:14px 16px; margin-top:16px}
-  .sharebox .t{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--teal); text-transform:uppercase}
-  .sharebox p{color:var(--dim); font-size:13.5px; margin:6px 0 10px; font-weight:600}
-  #shareBtn{background:var(--text); color:#fff; padding:10px 18px; font-size:13.5px; text-transform:uppercase; letter-spacing:1px}
-  .sharebox .ok{margin-left:10px; font-size:13px; color:var(--teal)}
-  .step2{font-family:var(--mono); font-size:11px; letter-spacing:2.5px; color:var(--coral); text-transform:uppercase; margin-top:18px}
-  .arrival{display:none; border:2px solid rgba(0,184,169,.45); background:rgba(0,184,169,.07); color:var(--text);
-    border-radius:14px; padding:10px 14px; margin-top:14px; font-size:14px; font-weight:700}
-  table{width:100%; border-collapse:collapse; margin-top:10px; font-size:15px}
-  td{padding:9px 6px; border-bottom:2px solid #FAF0DD}
-  td:first-child{color:var(--dim); font-weight:600}
-  td:last-child{text-align:right; font-weight:800}
-  table.board td:first-child{color:var(--coral); font-family:var(--mono); width:52px}
-  table.board td.addr{font-family:var(--mono); font-size:13.5px; text-align:left}
-  table.board td:last-child{color:var(--teal)}
-  .boardnote{font-family:var(--mono); font-size:11.5px; color:var(--dim); margin-top:10px; letter-spacing:.5px}
-  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:14px}
-  .card{background:#FFF6E9; border:2px solid var(--line); border-radius:18px; padding:18px; position:relative}
-  .card .no{font-family:var(--mono); color:var(--coral); font-size:12px; letter-spacing:2px}
-  .card h3{font-family:var(--head); margin:6px 0 4px; font-size:17px; font-weight:600; text-transform:uppercase; letter-spacing:.5px}
-  .card p{font-size:14.5px; color:var(--dim); font-weight:600}
-  .promptbox{background:#2B3A55; border:2px solid #2B3A55; border-radius:16px; padding:16px; margin-top:12px}
-  .promptbox pre{white-space:pre-wrap; word-break:break-word; font-size:13px; line-height:1.55; max-height:300px; overflow:auto;
-    color:#F4F7FF; font-family:var(--mono)}
-  #copyBtn{background:var(--sun); color:#4A3200; padding:11px 18px; margin-top:12px; text-transform:uppercase; letter-spacing:1px; font-size:13px}
-  details{border-bottom:2px solid #FAF0DD; padding:13px 2px}
-  summary{cursor:pointer; font-weight:800}
-  details p{color:var(--dim); font-size:14.5px; margin-top:6px; font-weight:600}
-  .foot{margin-top:36px; text-align:center; color:var(--dim); font-size:13px; font-family:var(--mono); letter-spacing:1px}
-  .warn{border:2px solid rgba(255,107,94,.5); background:rgba(255,107,94,.06); border-radius:16px; padding:16px 18px; margin-top:24px; font-size:14.5px; font-weight:600}
-  .warn b{color:var(--coral); letter-spacing:1px}
-  #diag{margin-top:14px; font-size:11px; color:var(--dim); text-align:center; font-family:var(--mono)}
-  code{background:#FFF1DC; border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:13px; word-break:break-all; font-family:var(--mono)}
-  @media (prefers-reduced-motion: reduce){ .ticker .track{animation:none} }
+
+  /* ---------- front page ---------- */
+  .hero{text-align:center;padding:34px 6px 8px;border-bottom:1px solid var(--rule)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:4px;text-transform:uppercase}
+  .kicker:before,.kicker:after{content:"—";margin:0 10px;color:var(--ink3)}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(52px,11vw,118px);line-height:.92;
+    text-transform:uppercase;margin:14px 0 6px}
+  .hero h1 .hollow{color:transparent;-webkit-text-stroke:2px var(--ink)}
+  .dove{display:block;margin:10px auto 2px}
+  .deck{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.8vw,23px);line-height:1.45;
+    max-width:720px;margin:12px auto 0;color:var(--ink)}
+  .deck b{font-style:normal}
+  .byline{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);
+    margin-top:16px;border-top:1px solid var(--hair);padding-top:9px}
+  #wcBtn{display:block;margin:18px auto 6px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);
+    font-family:var(--mono);font-size:13.5px;letter-spacing:2px;text-transform:uppercase;padding:13px 30px;cursor:pointer}
+  #wcBtn:hover{background:var(--paper);color:var(--ink)}
+
+  /* ---------- sections ---------- */
+  section{border-bottom:1px solid var(--rule);padding:30px 0 34px}
+  .sec{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink2);
+    display:flex;align-items:center;gap:12px}
+  .sec:after{content:"";flex:1;border-top:1px solid var(--hair)}
+  h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,4.6vw,40px);line-height:1.05;margin:10px 0 12px;text-transform:uppercase}
+  .lede{font-size:17px;max-width:760px}
+  .lede b{font-weight:700}
+
+  /* figures */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-top:18px;background:var(--paper)}
+  .stat{padding:16px 14px 13px;text-align:center}
+  .stat + .stat{border-left:1px solid var(--hair)}
+  .stat .num{font-family:var(--serif);font-weight:800;font-size:clamp(24px,4vw,36px);line-height:1}
+  .stat .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+  .bar{height:10px;border:1px solid var(--rule);margin-top:16px;background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(22,19,12,.08) 6px,rgba(22,19,12,.08) 12px)}
+  .bar i{display:block;height:100%;background:var(--ink);width:0%}
+  .barlbl{font-family:var(--mono);font-size:11px;letter-spacing:2px;margin-top:7px;text-transform:uppercase}
+
+  /* claim desk */
+  .arrival{display:none;border:1px solid var(--rule);padding:11px 14px;font-style:italic;margin:16px 0 0;background:var(--paper2)}
+  .sharebox{border:2px solid var(--rule);padding:18px;margin-top:18px;background:var(--paper)}
+  .sharebox .t{font-family:var(--mono);font-size:11.5px;letter-spacing:2.5px;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:8px}
+  .sharebox p{margin:10px 0 12px;font-size:15.5px}
+  .step2{font-family:var(--mono);font-size:11.5px;letter-spacing:2.5px;text-transform:uppercase;margin:22px 0 10px}
+  .mintrow{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+  .mintrow input{width:90px;background:#fff;border:1px solid var(--rule);color:var(--ink);
+    font-family:var(--mono);font-size:17px;padding:11px;text-align:center}
+  .quick{display:flex}
+  .quick button{background:var(--paper);border:1px solid var(--rule);border-left:none;color:var(--ink);
+    font-family:var(--mono);font-size:14px;padding:0 15px;cursor:pointer}
+  .quick button:first-child{border-left:1px solid var(--rule)}
+  .quick button:hover{background:var(--ink);color:var(--paper)}
+  button{font-family:var(--mono)}
+  #shareBtn,#refCopyBtn,#copyBtn{background:var(--paper);color:var(--ink);border:1px solid var(--rule);
+    font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;padding:11px 20px;cursor:pointer}
+  #shareBtn:hover,#refCopyBtn:hover,#copyBtn:hover{background:var(--ink);color:var(--paper)}
+  #mintBtn{flex:1;min-width:220px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);
+    font-size:14px;letter-spacing:1.6px;text-transform:uppercase;padding:13px 18px;cursor:pointer}
+  #mintBtn:disabled{background:var(--paper2);color:var(--ink3);border-color:var(--hair);cursor:not-allowed}
+  .ok{margin-left:10px;font-family:var(--mono);font-size:12.5px}
+  #quoteBox{font-family:var(--mono);font-size:13.5px;border:1px dashed var(--ink2);padding:12px 14px;margin-top:16px;line-height:1.6}
+  #statusBox{font-size:15px;margin-top:12px;line-height:1.6}
+  #statusBox:empty{display:none}
+  .refbox{border:1px solid var(--rule);padding:16px 18px;margin-top:20px}
+  .refbox .t{font-family:var(--mono);font-size:11.5px;letter-spacing:2.5px;text-transform:uppercase}
+  .refbox .link{font-family:var(--mono);font-size:13.5px;word-break:break-all;border:1px solid var(--hair);
+    background:#fff;padding:10px 12px;margin:10px 0}
+  .refbox p{color:var(--ink2);font-size:14.5px;margin-top:10px}
+
+  /* honour roll + tables */
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:15.5px}
+  table td{padding:9px 10px;border-bottom:1px solid var(--hair);vertical-align:top}
+  table tr td:first-child{font-family:var(--mono);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2);width:34%}
+  table.board td{font-family:var(--mono);font-size:13.5px}
+  table.board thead td{border-bottom:2px solid var(--rule);color:var(--ink);font-size:11px;letter-spacing:2px}
+  table.board tr td:first-child{width:auto;color:var(--ink)}
+  .boardnote{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--ink2);margin-top:12px;line-height:1.7;text-transform:uppercase}
+  code{font-family:var(--mono);font-size:.92em;word-break:break-all}
+
+  /* doctrine columns */
+  .grid{display:grid;grid-template-columns:1fr 1fr;margin-top:8px;border-top:1px solid var(--hair)}
+  .card{padding:18px 20px 16px 0;border-bottom:1px solid var(--hair)}
+  .card:nth-child(even){padding-left:20px;border-left:1px solid var(--hair)}
+  .card .no{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--ink2)}
+  .card h3{font-family:var(--serif);font-weight:700;font-size:20px;margin:6px 0 6px}
+  .card p{font-size:15px;color:var(--ink)}
+
+  /* agent dispatch */
+  .promptbox{border:1px solid var(--rule);margin-top:16px}
+  .promptbox pre{font-family:var(--mono);font-size:12.8px;line-height:1.65;white-space:pre-wrap;word-break:break-word;
+    padding:18px;background:repeating-linear-gradient(transparent,transparent 27px,rgba(22,19,12,.05) 27px,rgba(22,19,12,.05) 28px)}
+  .promptbox .bar2{border-top:1px solid var(--rule);padding:12px 14px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+
+  /* faq */
+  details{border-bottom:1px solid var(--hair);padding:13px 0}
+  details summary{font-family:var(--serif);font-weight:700;font-size:18.5px;cursor:pointer;list-style:none}
+  details summary:before{content:"Q. ";font-family:var(--mono);font-size:13px;letter-spacing:1px}
+  details p{margin-top:8px;font-size:15.5px;max-width:760px}
+
+  .warn{border:3px solid var(--rule);padding:18px 20px;margin-top:30px;font-size:15px;line-height:1.6}
+  .warn b{font-family:var(--mono);font-size:12px;letter-spacing:2px}
+  .foot{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--ink2);margin-top:30px;line-height:2;border-top:4px double var(--rule);padding-top:16px}
+  #diag{font-family:var(--mono);font-size:11px;color:var(--ink3);text-align:center;margin-top:10px}
+
+  @media(max-width:760px){
+    .stats{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){border-left:none}
+    .stat{border-top:1px solid var(--hair)}
+    .stat:nth-child(-n+2){border-top:none}
+    .grid{grid-template-columns:1fr}
+    .card:nth-child(even){padding-left:0;border-left:none}
+    .topline span:nth-child(2){display:none}
+  }
 </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
 <div class="wrap">
-  <header>
-    <div class="logo">
-      <svg class="mark" viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="#00B8A9" stroke-width="3" stroke-linejoin="round"><polygon points="58,8 98,44 56,38" fill="rgba(0,184,169,.16)"/><polygon points="16,56 56,38 72,60 38,72" fill="rgba(255,138,92,.18)" stroke="#FF8A5C"/><polygon points="72,60 96,56 76,46"/><polygon points="16,56 4,74 36,70" stroke="#FF8A5C"/></g></svg>
-      <div>
-        <div class="name">WAR NEED <span>OVER</span></div>
-        <div class="sub">PEACE PROTOCOL // BSC</div>
-      </div>
-    </div>
-    <button id="wcBtn">Connect Wallet</button>
-  </header>
+  <div class="topline"><span>Vol. I — No. 1</span><span>The Peace Gazette</span><span>Price: One Meme</span></div>
+  <div class="masthead">
+    <div class="paper-name">War Need <span>Over</span></div>
+    <div class="creed">“All the peace that’s fit to mint.”</div>
+  </div>
+  <div class="dateline"><span>BNB Smart Chain</span><span id="dateline">Daily Edition</span><span>50° Peace · 0° War</span></div>
   <div id="headStatus"></div>
 
-  <section class="hero">
-    <div class="coords">SIGNAL 56 · BNB SMART CHAIN · EST. 2026</div>
-    <svg class="doveArt" viewBox="0 0 120 90" role="img" aria-label="Geometric dove">
-      <g fill="none" stroke="#00B8A9" stroke-width="2.4" stroke-linejoin="round">
-        <polygon points="58,8 98,44 56,38" fill="rgba(0,184,169,.15)"/>
-        <polygon points="16,56 56,38 72,60 38,72" fill="rgba(255,138,92,.16)" stroke="#FF8A5C"/>
+  <section class="hero" style="border-bottom:none;padding-bottom:0">
+    <div class="kicker">Extra! Extra!</div>
+    <h1>War Need<br><span class="hollow">Over</span></h1>
+    <svg class="dove" width="150" height="112" viewBox="0 0 120 90" role="img" aria-label="Line drawing of a dove">
+      <g fill="none" stroke="#16130c" stroke-width="2.2" stroke-linejoin="round">
+        <polygon points="58,8 98,44 56,38"/>
+        <polygon points="16,56 56,38 72,60 38,72"/>
         <polygon points="72,60 96,56 76,46"/>
-        <polygon points="16,56 4,74 36,70" stroke="#FF8A5C"/>
-        <line x1="88" y1="52" x2="106" y2="44" stroke="#FF8A5C"/>
-        <ellipse cx="108" cy="43" rx="5" ry="2.6" fill="#FF8A5C" stroke="none" transform="rotate(-24 108 43)"/>
+        <polygon points="16,56 4,74 36,70"/>
+        <line x1="88" y1="52" x2="106" y2="44"/>
+        <ellipse cx="108" cy="43" rx="5" ry="2.6" fill="#16130c" stroke="none" transform="rotate(-24 108 43)"/>
       </g>
     </svg>
-    <h1>WAR NEED<br><span class="stroke">OVER</span></h1>
-    <p class="tagline">Every war in history ended the same way: people sat down, talked, and went home.
-    We're just skipping to the going-home part. <b>Send memes, not missiles.</b>
-    The only explosion allowed here is the chart.</p>
+    <p class="deck">Every war in history ended the same way: people sat down, talked, and went home.
+    This newspaper is skipping straight to the going-home part. <b>Send memes, not missiles.</b>
+    The only explosion permitted on these pages is the chart.</p>
+    <div class="byline">By The Peace Desk · BNB Smart Chain Bureau</div>
+    <button id="wcBtn">Connect Wallet</button>
   </section>
 
   <div class="ticker" aria-hidden="true"><div class="track" id="tickerTrack">
-    <span>FIRST 3,000 SHARES <i>FREE</i> FOR AGENT ID HOLDERS</span><span>1 SHARE = <i>1,000,000 WNO</i></span><span>SEND MEMES, <i>NOT MISSILES</i></span><span>NO ADMIN KEYS · NO TAX · <i>NO RE-MINT</i></span><span>PEACE IS THE <i>NARRATIVE</i></span>
+    <span>First 3,000 shares <i>free</i> for Agent ID holders</span><span>1 share = <i>1,000,000 WNO</i></span><span>Send memes, <i>not missiles</i></span><span>No admin keys · No tax · <i>No re-mint</i></span><span>Peace is the <i>narrative</i></span>
   </div></div>
 
-  <section class="panel">
-    <div class="sec">01 // Transmission</div>
-    <h2>Sale status</h2>
+  <section>
+    <div class="sec">No. 01 — Front Page Figures</div>
+    <h2>The Sale, In Numbers</h2>
     <div class="stats">
       <div class="stat"><div class="num" id="stSold">—</div><div class="lbl">Shares sold / 6,000</div></div>
       <div class="stat"><div class="num" id="stFreeLeft">—</div><div class="lbl">Free shares left</div></div>
@@ -181,19 +204,19 @@
     <div class="barlbl" id="freeBarLbl">FREE QUOTA: —</div>
   </section>
 
-  <section class="panel">
-    <div class="sec">02 // Enlist</div>
-    <h2>Claim your share of peace</h2>
+  <section>
+    <div class="sec">No. 02 — The Claim Desk</div>
+    <h2>Claim Your Share of Peace</h2>
     <p class="lede">Every Agent ID wallet gets <b>1 free share</b> while the 3,000-share free quota lasts.
-    After that it's 0.001 BNB per share, max 20 shares per transaction. Overpaid BNB is refunded in the same transaction —
-    the contract is more honest than most ceasefire agreements.</p>
-    <div class="arrival" id="arrivalBox">You arrived through a Peace Ambassador's link — your claim will credit them on the board below.</div>
+    After that it is 0.001 BNB per share, max 20 shares per transaction. Overpaid BNB is refunded in the same
+    transaction — the contract is more honest than most ceasefire agreements.</p>
+    <div class="arrival" id="arrivalBox">You arrived through a Peace Ambassador’s link — your claim will credit them on the roll below.</div>
     <div class="sharebox" id="shareBox">
-      <div class="t">Step 1 — Spread the signal</div>
+      <div class="t">Public Notice — Step 1: Spread The Word</div>
       <p>Claims on this page unlock after you share WNO on X. One post from you can bring the next hundred peacekeepers.</p>
       <button id="shareBtn">Share on X</button><span class="ok" id="shareMsg"></span>
     </div>
-    <div class="step2">Step 2 — Claim</div>
+    <div class="step2">Step 2 — File Your Claim</div>
     <div class="mintrow">
       <input type="number" id="sharesInput" min="1" max="20" value="1">
       <div class="quick">
@@ -205,19 +228,19 @@
     <div id="quoteBox">Connect your wallet to see your exact price.</div>
     <div id="statusBox"></div>
     <div class="refbox" id="refBox">
-      <div class="t">Your personal claim link</div>
+      <div class="t">Your Personal Claim Link</div>
       <div class="link" id="refLink">—</div>
       <button id="refCopyBtn">Copy link</button><span class="ok" id="refCopyMsg"></span>
-      <p style="color:var(--dim); font-size:13.5px; margin-top:10px">Share it anywhere. Every claim made through your link records you
-      as the referrer on-chain — and climbs you up the Peace Ambassadors board below. Peace spreads peer-to-peer.</p>
+      <p>Share it anywhere. Every claim made through your link records you as the referrer on-chain —
+      and climbs you up the Peace Ambassadors roll below. Peace spreads peer-to-peer.</p>
     </div>
   </section>
 
-  <section class="panel">
-    <div class="sec">03 // Honours</div>
+  <section>
+    <div class="sec">No. 03 — The Honour Roll</div>
     <h2>Peace Ambassadors</h2>
-    <p class="lede">The wallets spreading peace the furthest. Ranked by claims made through their personal link —
-    counted from the contract's own on-chain <b>MintShares</b> events, no self-reported numbers.</p>
+    <p class="lede">The wallets spreading peace the furthest, ranked by claims made through their personal link —
+    counted from the contract’s own on-chain <b>MintShares</b> events. No self-reported numbers; this office checks the record.</p>
     <table class="board">
       <thead><tr><td>#</td><td style="text-align:left">Ambassador</td><td style="text-align:right">Claims referred</td></tr></thead>
       <tbody id="boardBody"></tbody>
@@ -225,9 +248,9 @@
     <p class="boardnote" id="boardNote"></p>
   </section>
 
-  <section class="panel">
-    <div class="sec">04 // Doctrine</div>
-    <h2>Why does this token exist?</h2>
+  <section>
+    <div class="sec">No. 04 — Editorial</div>
+    <h2>Why Does This Token Exist?</h2>
     <div class="grid">
       <div class="card"><div class="no">A—01</div><h3>Peace is the best narrative</h3>
         <p>Generals get medals. Politicians get podiums. Everybody else just wants to go home. This token is for everybody else.</p></div>
@@ -235,13 +258,13 @@
         <p>Minting is open only to Binance Agent ID wallets. Humans may watch from the sidelines — a historically safe position.</p></div>
       <div class="card"><div class="no">A—03</div><h3>No admin keys, no tricks</h3>
         <p>No owner functions, no tax, no re-minting. All 6 billion WNO are locked in the contract and only leave through share purchases. Fewer backdoors than a peace treaty.</p></div>
-      <div class="card"><div class="no">A—04</div><h3>3,000 free, then it's over</h3>
+      <div class="card"><div class="no">A—04</div><h3>3,000 free, then it’s over</h3>
         <p>Half the shares are given away free to the agents who show up first. After share #3,000 everyone pays the same price. No insider lane — insiders queue like everyone.</p></div>
     </div>
   </section>
 
-  <section class="panel">
-    <div class="sec">05 // Manifest</div>
+  <section>
+    <div class="sec">No. 05 — Market Data &amp; Particulars</div>
     <h2>Tokenomics</h2>
     <table>
       <tr><td>Name / symbol</td><td>War Need Over / WNO</td></tr>
@@ -254,10 +277,10 @@
     </table>
   </section>
 
-  <section class="panel">
-    <div class="sec">06 // Agent uplink</div>
+  <section>
+    <div class="sec">No. 06 — Wire Dispatch</div>
     <h2>For AI Agents</h2>
-    <p class="lede">Give your AI agent this one prompt and it does the rest — safely, with a preview and your confirmation before anything is sent.</p>
+    <p class="lede">Give your AI agent this one dispatch and it does the rest — safely, with a preview and your confirmation before anything is sent.</p>
     <div class="promptbox">
 <pre id="agentPrompt">You are helping me join War Need Over (WNO), a memecoin on BNB Smart Chain (chainId 56).
 The token and its share sale live in ONE contract. Read its address from the Tokenomics
@@ -291,36 +314,40 @@ STEP 6 — Verify my WNO balance increased by N x 1,000,000 and show me the BscS
 transaction link.
 
 This is a memecoin with no promised value — remind me of that before I confirm.</pre>
-      <button id="copyBtn">Copy Prompt</button>
-      <span id="copyMsg" style="margin-left:10px; font-size:14px"></span>
+      <div class="bar2">
+        <button id="copyBtn">Copy Prompt</button>
+        <span id="copyMsg" style="font-size:13px"></span>
+      </div>
     </div>
   </section>
 
-  <section class="panel">
-    <div class="sec">07 // Field manual</div>
+  <section>
+    <div class="sec">No. 07 — Readers’ Questions</div>
     <h2>FAQ</h2>
     <details><summary>Who can mint?</summary>
       <p>Binance Agentic Wallets holding an Agent ID (.ai). The contract checks Agent ID ownership on-chain — no forms, no whitelist drama, no negotiations in Geneva.</p></details>
     <details><summary>Why only 1 free share per wallet?</summary>
       <p>So 3,000 different agents get one, instead of 1 agent with 3,000 wallets getting all of them. Peace is for sharing.</p></details>
     <details><summary>What is the Peace Ambassadors board?</summary>
-      <p>Every claim made through someone's personal ?ref= link records that wallet as the referrer in the contract's MintShares event. The board ranks those referrers. It is rebuilt from on-chain events and republished by the project's agent — check any entry against BscScan yourself.</p></details>
+      <p>Every claim made through someone’s personal ?ref= link records that wallet as the referrer in the contract’s MintShares event. The board ranks those referrers. It is rebuilt from on-chain events and republished by the project’s agent — check any entry against BscScan yourself.</p></details>
     <details><summary>Can my AI agent mint for me?</summary>
-      <p>Yes — copy the prompt in the "For AI Agents" section above and paste it into your agent. It will verify everything and ask for your confirmation before sending.</p></details>
+      <p>Yes — copy the prompt in the “For AI Agents” section above and paste it into your agent. It will verify everything and ask for your confirmation before sending.</p></details>
     <details><summary>Is this an investment?</summary>
-      <p>No. It's a peace meme for fun. Read the red box below — that part is not a joke, on purpose.</p></details>
+      <p>No. It is a peace meme for fun. Read the notice below — that part is not a joke, on purpose.</p></details>
   </section>
 
-  <div class="warn"><b>THE SERIOUS PART:</b> WNO is a memecoin with no intrinsic value and no promises.
+  <div class="warn"><b>THE SERIOUS PART —</b> WNO is a memecoin with no intrinsic value and no promises.
   The price can go up, can go to zero, and will probably go to zero. Not affiliated with any government, army, peace
   organization, or Binance. This is not financial advice. Never spend money you cannot afford to lose.
   The contract is open and verified on Sourcify/BscScan — check it yourself before minting.</div>
 
-  <p class="foot">MADE WITH HOPE · WAR NEED OVER · BSC<br>
-  CONTRACT: <code>0x8C969a4CD49E4774908e667702C3d7C3ece164D0</code></p>
+  <p class="foot">Printed on-chain · War Need Over · BSC<br>
+  Contract: <code>0x8C969a4CD49E4774908e667702C3d7C3ece164D0</code></p>
   <p id="diag">diagnostics: starting…</p>
 </div>
-
+<script>
+  (function(){ var d = new Date(); var days = ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"]; var months = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]; var el = document.getElementById("dateline"); if (el) el.textContent = days[d.getDay()] + ", " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear(); })();
+</script>
 <script>
 // ===== War Need Over — zero external JS libraries. Raw EIP-1193 + fetch JSON-RPC. =====
 var CONTRACT = "0x8C969a4CD49E4774908e667702C3d7C3ece164D0";
@@ -332,8 +359,8 @@ var shared = false, quoteOk = false;
 try{ shared = sessionStorage.getItem("wno_shared") === "1"; }catch(e){}
 
 // ---- Peace Ambassadors snapshot (rebuilt from on-chain MintShares events, republished periodically) ----
-var REF_BOARD = [{ a: "0xCd0739785CcBE9bA6e14DD77B52F230b2c367A10", c: 14 }, { a: "0xDA0aF6C2D6040Cde8F37a0C05AAbEd0936e9486f", c: 11 }, { a: "0x2c0c62C3701CF9aCBaD5E71Ab60F57D54FCb321B", c: 6 }, { a: "0xf99e47F366F60F90e210b347547A17f94b401E15", c: 5 }, { a: "0x3CC7A2268CC4ab868B7FF4690Cf75E2457eAa8B0", c: 4 }, { a: "0x1ABFeC7535310aB65536A75A6c6f304031465284", c: 3 }, { a: "0x1BE30ad4D5BA6cde8f86C9ca49dC2074AB0F52a5", c: 2 }, { a: "0x1EEf6ba50F29E7470353cADB91239Ee2E5D09F6A", c: 2 }, { a: "0xF69EF2dfc09218B3EADdEf5c8cFD9cdCc693DAdC", c: 2 }, { a: "0x0000000000000000000000000000000000000001", c: 1 }];
-var REF_NOTE = "SNAPSHOT · ON-CHAIN MINTSHARES EVENTS UP TO BLOCK 132,838,849 · 85 OF 1,204 CLAIMS ARRIVED WITH A REFERRER · UPDATED 11 NOV 2026 BY THE PROJECT'S AGENT";
+var REF_BOARD = [{ a: "0x7f4F9E1Fa94135c0BD2b7a036AcB9E2CE08c55b3", c: 16 }, { a: "0xCd0739785CcBE9bA6e14DD77B52F230b2c367A10", c: 14 }, { a: "0xDA0aF6C2D6040Cde8F37a0C05AAbEd0936e9486f", c: 11 }, { a: "0x2c0c62C3701CF9aCBaD5E71Ab60F57D54FCb321B", c: 6 }, { a: "0x8C4126Ea29cC4f25165308b4db795983aE09aa2D", c: 6 }, { a: "0xf99e47F366F60F90e210b347547A17f94b401E15", c: 5 }, { a: "0x3CC7A2268CC4ab868B7FF4690Cf75E2457eAa8B0", c: 4 }, { a: "0x16dF9742cef1F7C7412c2238eDfC3836a653F6Fe", c: 4 }, { a: "0x1EEf6ba50F29E7470353cADB91239Ee2E5D09F6A", c: 3 }, { a: "0x1ABFeC7535310aB65536A75A6c6f304031465284", c: 3 }];
+var REF_NOTE = "SNAPSHOT · ON-CHAIN MINTSHARES EVENTS UP TO BLOCK 133,205,376 · 135 OF 1,725 CLAIMS ARRIVED WITH A REFERRER · UPDATED 13 NOV 2026 BY THE PROJECT'S AGENT";
 
 function $(id){ return document.getElementById(id); }
 function fmt(n){ return Number(n).toLocaleString("en-US"); }
@@ -650,30 +677,6 @@ diag("page JS OK · WalletConnect ready · sale stats loading (no external libra
 renderBoard();
 refreshStats();
 </script>
-<script>
-// ---- starfield backdrop (hand-rolled, no libraries) ----
-(function(){
-  var cv = document.getElementById("stars"), ctx = cv.getContext("2d"), stars = [], W, H;
-  function size(){
-    W = cv.width = innerWidth; H = cv.height = innerHeight;
-    stars = [];
-    var n = Math.min(130, Math.floor(W * H / 16000));
-    for (var i = 0; i < n; i++) stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, s: Math.random() * .16 + .03, p: Math.random() * 6.28 });
-  }
-  size(); addEventListener("resize", size);
-  (function loop(t){
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < stars.length; i++){
-      var st = stars[i];
-      st.y += st.s; if (st.y > H + 2) { st.y = -2; st.x = Math.random() * W; }
-      var a = .35 + .3 * Math.sin(t / 900 + st.p);
-      ctx.globalAlpha = a; ctx.fillStyle = "#FFB59E";
-      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, 6.29); ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(loop);
-  })(0);
-})();
-</script>
+
 </body>
 </html>
